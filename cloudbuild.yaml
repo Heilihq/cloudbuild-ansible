@@ -12,8 +12,7 @@ steps:
 # Run some ansible commands for check
 - name: 'gcr.io/$PROJECT_ID/ansible'
   entrypoint: '/usr/bin/ansible'
-  args: ['all', '-i', '"localhost,"', '-c', 'local', '-m', 'setup', '-a', '"filter=ansible_hostname"', '-e', '"ansible_p
-ython_interpreter=/usr/bin/python3"']
+  args: ['all', '-i', 'localhost,', '-c', 'local', '-e', 'ansible_python_interpreter=python3', '-m', 'setup', '-a', 'filter=ansible_hostname']
 
 images:
 - 'gcr.io/$PROJECT_ID/ansible'
